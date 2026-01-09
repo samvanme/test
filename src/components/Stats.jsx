@@ -19,7 +19,7 @@ export default function Stats() {
   ];
 
   return (
-    <section className="relative py-24 lg:py-32 bg-slate-900 text-white overflow-hidden">
+    <section className="relative py-24 lg:py-32 bg-slate-900 text-white overflow-hidden grain-dark">
       <div className="bg-grid-dark"></div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
@@ -28,11 +28,16 @@ export default function Stats() {
           <span className="text-xs font-semibold uppercase tracking-wider text-[#00ABE2] mb-4 block">
             Proven Results
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Performance That Speaks For Itself
+          <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+            Performance That
+            <br />
+            <span className="bg-gradient-to-r from-[#00ABE2] to-white bg-clip-text text-transparent">
+              Speaks For Itself
+            </span>
           </h2>
-          <p className="text-xl text-slate-300 leading-relaxed">
-            Real metrics from businesses using StrataBlue AI voice agents every day.
+          <p className="text-xl text-slate-300 leading-relaxed font-light">
+            Real metrics from businesses using StrataBlue AI voice agents
+            <span className="block mt-1">every day.</span>
           </p>
         </div>
 

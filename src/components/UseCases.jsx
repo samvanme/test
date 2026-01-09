@@ -67,15 +67,20 @@ export default function UseCases() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#00ABE2] mb-4 block">
             Built For Your Business
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            AI Agents For Every Use Case
+          <h2 className="text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
+            AI Agents For
+            <br />
+            <span className="bg-gradient-to-r from-[#105665] to-[#00ABE2] bg-clip-text text-transparent">
+              Every Use Case
+            </span>
           </h2>
-          <p className="text-xl text-slate-600 leading-relaxed">
-            From sales to support, our AI voice agents handle the conversations that matter most to your business.
+          <p className="text-xl text-slate-600 leading-relaxed font-light">
+            From sales to support, our AI voice agents handle the conversations
+            <span className="block mt-1">that matter most to your business.</span>
           </p>
         </div>
 
@@ -84,7 +89,7 @@ export default function UseCases() {
           {useCases.map((useCase, index) => (
             <div
               key={index}
-              className="group relative p-8 bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-200 hover:border-[#00ABE2]/30 transition-all duration-300 overflow-hidden"
+              className="group relative p-8 bg-white rounded-3xl border border-slate-200 hover:border-[#00ABE2]/30 shadow-brutal-hover overflow-hidden"
               onMouseMove={(e) => handleMouseMove(e, index)}
             >
               {/* Spotlight effect */}
