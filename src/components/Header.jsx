@@ -3,14 +3,13 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#030712]/80 backdrop-blur-xl border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <a href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-blue-dark to-brand-blue flex items-center justify-center transition-all duration-300"
-                 style={{boxShadow: '0 0 20px rgba(0, 171, 226, 0.3)'}}>
-              <span className="text-white font-bold text-xl">S</span>
-            </div>
-            <div className="text-2xl font-display font-bold tracking-tight bg-gradient-to-r from-white to-brand-blue bg-clip-text text-transparent">
-              StrataBlue
-            </div>
+          <a href="/" className="flex items-center group">
+            <img
+              src="/stratablue-logo.svg"
+              alt="StrataBlue"
+              className="h-12 transition-all duration-300 group-hover:scale-105"
+              style={{filter: 'drop-shadow(0 0 20px rgba(0, 171, 226, 0.3))'}}
+            />
           </a>
 
           <nav className="hidden lg:flex items-center gap-8">
