@@ -1,3 +1,5 @@
+import { CONTACT } from '../constants/config';
+
 export default function FinalCTA() {
   return (
     <section id="book" className="relative py-32 overflow-hidden">
@@ -16,13 +18,13 @@ export default function FinalCTA() {
         {/* Phone input with glow */}
         <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-8">
           <a
-            href="tel:+13179612546"
+            href={`tel:${CONTACT.phone}`}
             className="flex-1 px-8 py-4 bg-gradient-to-r from-brand-blue-dark to-brand-blue text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 text-center"
             style={{boxShadow: '0 0 30px rgba(0, 171, 226, 0.4)'}}
             onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 50px rgba(0, 171, 226, 0.6)'}
             onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 30px rgba(0, 171, 226, 0.4)'}
           >
-            Call Now: (317) 961-2546
+            Call Now: {CONTACT.phoneDisplay}
           </a>
           <button className="px-8 py-4 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/10 hover:border-white/30 transition-all backdrop-blur-sm whitespace-nowrap">
             Schedule Call

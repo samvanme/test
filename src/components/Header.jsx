@@ -1,3 +1,5 @@
+import { CONTACT } from '../constants/config';
+
 export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#030712]/80 backdrop-blur-xl border-b border-white/5">
@@ -26,7 +28,7 @@ export default function Header() {
 
           <div className="flex items-center gap-4">
             <a
-              href="tel:+13179612546"
+              href={`tel:${CONTACT.phone}`}
               className="hidden sm:flex items-center gap-2 text-brand-blue font-semibold hover:text-white transition-colors"
             >
               <span className="relative flex h-2 w-2">

@@ -1,3 +1,5 @@
+import { CONTACT } from '../constants/config';
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
@@ -64,7 +66,7 @@ export default function Hero() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <a
-              href="tel:+13179612546"
+              href={`tel:${CONTACT.phone}`}
               className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-brand-blue-dark to-brand-blue text-white font-semibold rounded-full transition-all duration-300 hover:scale-105"
               style={{boxShadow: '0 0 20px rgba(0, 171, 226, 0.3)'}}
               onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 40px rgba(0, 171, 226, 0.5)'}
