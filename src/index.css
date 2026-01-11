@@ -91,47 +91,28 @@
     @apply font-sans text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue;
   }
 
-  /* Dark Aurora Background */
+  /* Dark Aurora Background - Static, no animation */
   .aurora-bg {
     position: fixed;
     inset: 0;
-    overflow: hidden;
     background: #030712;
     z-index: -1;
   }
 
-  .aurora-bg::before,
-  .aurora-bg::after {
+  /* Static subtle gradient, no animation */
+  .aurora-bg::before {
     content: '';
     position: absolute;
-    width: 150%;
-    height: 150%;
+    inset: 0;
     background: radial-gradient(
-      ellipse at center,
-      rgba(0, 171, 226, 0.15) 0%,
-      transparent 50%
+      ellipse 80% 50% at 50% 0%,
+      rgba(0, 171, 226, 0.08) 0%,
+      transparent 60%
     );
-    animation: aurora 15s ease-in-out infinite alternate;
+    /* No animation */
   }
 
-  .aurora-bg::before {
-    top: -50%;
-    left: -25%;
-    animation-delay: 0s;
-  }
-
-  .aurora-bg::after {
-    bottom: -50%;
-    right: -25%;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(16, 86, 101, 0.2) 0%,
-      transparent 50%
-    );
-    animation-delay: -7s;
-  }
-
-  /* Animated Background Effects */
+  /* Static Background Effects - No Animation */
   .hero-beams {
     position: absolute;
     inset: 0;
@@ -157,7 +138,7 @@
       rgba(16, 86, 101, 0.08) 315deg,
       transparent 360deg
     );
-    animation: rotate-beams 20s linear infinite;
+    /* Animation removed - static conic gradient */
   }
 
   .bg-orbs {
@@ -172,6 +153,7 @@
     border-radius: 50%;
     filter: blur(80px);
     opacity: 0.4;
+    /* Animations removed - static orbs */
   }
 
   .bg-orbs .orb-1 {
@@ -180,8 +162,6 @@
     background: radial-gradient(circle, #00ABE2 0%, transparent 70%);
     top: -10%;
     right: -5%;
-    animation: float 15s ease-in-out infinite;
-    animation-delay: 0s;
   }
 
   .bg-orbs .orb-2 {
@@ -190,8 +170,6 @@
     background: radial-gradient(circle, #105665 0%, transparent 70%);
     bottom: 20%;
     left: -10%;
-    animation: float 15s ease-in-out infinite;
-    animation-delay: -5s;
   }
 
   .bg-orbs .orb-3 {
@@ -200,8 +178,6 @@
     background: radial-gradient(circle, #00ABE2 0%, transparent 70%);
     top: 50%;
     right: 20%;
-    animation: float 15s ease-in-out infinite;
-    animation-delay: -10s;
   }
 
   .bg-dots {
@@ -379,18 +355,4 @@
   }
 }
 
-@keyframes rotate-beams {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.05); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
-}
-
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
+/* Decorative keyframes removed - keeping only functional animations in Tailwind config */
