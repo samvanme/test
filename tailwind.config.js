@@ -14,9 +14,9 @@ export default {
         void: '#030712',
       },
       fontFamily: {
-        sans: ['Outfit', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-        display: ['Outfit', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'ui-monospace', 'monospace'],
+        sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        display: ['Darker Grotesque', 'Space Grotesk', 'system-ui', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
       },
       animation: {
         'aurora': 'aurora 15s ease-in-out infinite alternate',
