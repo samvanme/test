@@ -4,7 +4,7 @@
 
 **Milestone**: 1 — AI-Native Website Launch
 **Phase**: 2 — Design System
-**Status**: Ready to Plan
+**Status**: Planned — Ready to Execute
 
 ## Progress
 
@@ -24,8 +24,9 @@
 Phase 1 Foundation & Cleanup completed with 7 commits.
 
 ### Next Action
-Plan Phase 2: Design System
-- Run `/gsd:plan-phase` to create execution plan
+Execute Phase 2: Design System
+- Run `/gsd:execute-plan` to implement design tokens and refactoring
+- Plan created: `.planning/phases/02-design-system/02-01-PLAN.md`
 
 ### Blockers
 None
