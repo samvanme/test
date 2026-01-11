@@ -22,6 +22,12 @@ export default {
         '3': '3px',
         '4': '4px',
       },
+      spacing: {
+        '18': '4.5rem',   // 72px
+        '22': '5.5rem',   // 88px
+        '30': '7.5rem',   // 120px - generous section spacing
+        '36': '9rem',     // 144px - hero-level spacing
+      },
       animation: {
         'aurora': 'aurora 15s ease-in-out infinite alternate',
         'float': 'float 20s ease-in-out infinite',

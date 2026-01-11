@@ -33,6 +33,27 @@
 }
 
 @layer components {
+  /* Grid system - 12 column with visible structure */
+  .grid-brutal {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Section container - generous margins */
+  .section-brutal {
+    @apply py-24 lg:py-36;
+  }
+
+  /* Content container - asymmetric option */
+  .container-brutal {
+    @apply max-w-7xl mx-auto px-6 lg:px-12;
+  }
+
+  .container-brutal-wide {
+    @apply max-w-[1400px] mx-auto px-6 lg:px-16;
+  }
+
   /* Dark Aurora Background */
   .aurora-bg {
     position: fixed;
