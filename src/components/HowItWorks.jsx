@@ -1,3 +1,5 @@
+import { CONTACT } from '../constants/config';
+
 export default function HowItWorks() {
   const steps = [
     {
@@ -90,7 +92,7 @@ export default function HowItWorks() {
         {/* CTA */}
         <div className="text-center mt-16">
           <a
-            href="tel:+13179612546"
+            href={`tel:${CONTACT.phone}`}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-brand-blue-dark to-brand-blue text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105"
             style={{boxShadow: '0 0 20px rgba(0, 171, 226, 0.3)'}}
             onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 40px rgba(0, 171, 226, 0.5)'}

@@ -1,3 +1,5 @@
+import { CONTACT } from '../constants/config';
+
 export default function VoiceDemo() {
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden" id="demo">
@@ -155,7 +157,7 @@ export default function VoiceDemo() {
         </div>
 
         <div className="text-center mt-12">
-          <a href="tel:+13179612546"
+          <a href={`tel:${CONTACT.phone}`}
              className="inline-flex items-center gap-2 text-brand-blue hover:text-white transition-colors font-semibold group">
             Call now to experience an AI agent live
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
