@@ -54,6 +54,43 @@
     @apply max-w-[1400px] mx-auto px-6 lg:px-16;
   }
 
+  /* Display - Darker Grotesque, massive scale */
+  .text-display-xl {
+    @apply font-display text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-[0.9];
+  }
+
+  .text-display-lg {
+    @apply font-display text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95];
+  }
+
+  /* Section headers - bold, no decoration */
+  .text-heading {
+    @apply font-display text-4xl lg:text-5xl font-bold text-white leading-tight;
+  }
+
+  .text-heading-sm {
+    @apply font-display text-2xl lg:text-3xl font-bold text-white;
+  }
+
+  /* Body - Space Grotesk, readable */
+  .text-body-lg {
+    @apply font-sans text-xl text-slate-300 leading-relaxed;
+  }
+
+  .text-body {
+    @apply font-sans text-base text-slate-400 leading-relaxed;
+  }
+
+  /* Mono - for data, stats, technical */
+  .text-mono {
+    @apply font-mono text-sm tracking-wide;
+  }
+
+  /* Overline - smaller, spaced */
+  .text-overline {
+    @apply font-sans text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue;
+  }
+
   /* Dark Aurora Background */
   .aurora-bg {
     position: fixed;
