@@ -2,17 +2,17 @@ import { CONTACT } from '../constants/config';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Grid overlay - stark brutalist grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:80px_80px]"></div>
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-16 sm:pt-20">
+      {/* Grid overlay - stark brutalist grid, responsive sizing */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] sm:bg-[size:60px_60px] lg:bg-[size:80px_80px]"></div>
 
-      <div className="container-brutal relative z-10 py-20 lg:py-28">
-        {/* Thick vertical accent line */}
-        <div className="absolute left-6 lg:left-12 top-20 bottom-20 w-1 bg-brand-blue"></div>
+      <div className="container-brutal relative z-10 py-16 sm:py-20 lg:py-28">
+        {/* Thick vertical accent line - hidden on mobile, visible on sm+ */}
+        <div className="hidden sm:block absolute left-6 lg:left-12 top-16 sm:top-20 bottom-16 sm:bottom-20 w-1 bg-brand-blue"></div>
 
-        <div className="max-w-4xl pl-6 lg:pl-8">
+        <div className="max-w-4xl sm:pl-6 lg:pl-8">
           {/* Overline - minimal brutalist */}
-          <div className="inline-flex items-center gap-3 mb-6">
+          <div className="inline-flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
@@ -20,26 +20,26 @@ export default function Hero() {
             <span className="text-overline">Production AI Systems</span>
           </div>
 
-          {/* Headline - maximum impact, brutalist typography */}
-          <h1 className="text-display-xl text-white mb-6 leading-[0.85]">
+          {/* Headline - responsive typography */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-black uppercase tracking-tight text-white mb-4 sm:mb-6 leading-[0.9]">
             AI That <span className="text-brand-blue">Works</span><br />
             Inside Your CRM
           </h1>
 
           {/* Horizontal accent */}
-          <div className="w-24 h-1 bg-white/20 mb-8"></div>
+          <div className="w-16 sm:w-24 h-1 bg-white/20 mb-6 sm:mb-8"></div>
 
           {/* Single strong subheadline */}
-          <p className="text-body-lg mb-12 max-w-xl">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed mb-8 sm:mb-12 max-w-xl">
             Voice agents for revenue and service operations.
             Integrated with your systems. Measured in your dashboards.
           </p>
 
-          {/* CTA Buttons - brutalist style, left-aligned */}
-          <div className="flex flex-col sm:flex-row items-start gap-4 mb-10">
+          {/* CTA Buttons - stack on mobile, ensure 44px+ touch targets */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 mb-8 sm:mb-10">
             <a
               href={`tel:${CONTACT.phone}`}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-brand-blue text-white font-bold border-2 border-white shadow-brutal hover:shadow-brutal-lg active:shadow-brutal-sm active:translate-x-0.5 active:translate-y-0.5 transition-all"
+              className="inline-flex items-center justify-center sm:justify-start gap-3 px-6 sm:px-8 py-4 min-h-[48px] bg-brand-blue text-white font-bold border-2 border-white shadow-brutal hover:shadow-brutal-lg active:shadow-brutal-sm active:translate-x-0.5 active:translate-y-0.5 transition-all"
             >
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
@@ -49,7 +49,7 @@ export default function Hero() {
             </a>
             <a
               href="#demo"
-              className="inline-flex items-center gap-2 px-8 py-4 text-white font-bold border-2 border-white/30 hover:border-white hover:bg-white/5 transition-all"
+              className="inline-flex items-center justify-center sm:justify-start gap-2 px-6 sm:px-8 py-4 min-h-[48px] text-white font-bold border-2 border-white/30 hover:border-white hover:bg-white/5 transition-all"
             >
               See Demo
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -58,9 +58,10 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Trust Line - minimal text */}
-          <p className="text-mono text-slate-500">
-            CRM Integration · Full Attribution · Governed Systems
+          {/* Trust Line - minimal text, wrap on mobile */}
+          <p className="text-mono text-slate-500 text-xs sm:text-sm">
+            <span className="hidden sm:inline">CRM Integration · Full Attribution · Governed Systems</span>
+            <span className="sm:hidden">CRM · Attribution · Governed</span>
           </p>
         </div>
       </div>
