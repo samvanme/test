@@ -85,12 +85,12 @@ export default function UseCases() {
               </div>
 
               {/* Category */}
-              <span className="text-overline mb-3 block">
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 mb-2 block">
                 {useCase.category}
               </span>
 
               {/* Title */}
-              <h3 className="text-heading-sm mb-4">
+              <h3 className="text-heading-sm mb-6">
                 {useCase.title}
               </h3>
 
@@ -107,9 +107,9 @@ export default function UseCases() {
               </ul>
 
               {/* CTA Link */}
-              <a href="#book" className="inline-flex items-center gap-2 text-white font-bold border-b-2 border-white hover:text-brand-blue hover:border-brand-blue transition-colors">
+              <a href="#book" className="group/link inline-flex items-center gap-2 text-white font-bold border-b-2 border-white hover:text-brand-blue hover:border-brand-blue transition-colors">
                 Learn More
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                 </svg>
               </a>
