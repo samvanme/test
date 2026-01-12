@@ -54,18 +54,18 @@ export default function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-5xl mx-auto">
           {steps.map((step, index) => (
-            <div key={index} className="relative">
-              {/* Connector Line (desktop only) */}
+            <div key={index} className="relative pt-4 pr-4">
+              {/* Connector Line (tablet+ only) */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-white/40 -translate-x-8"></div>
+                <div className="hidden md:block absolute top-[4.5rem] left-full w-full border-t-2 border-dashed border-white/30 -translate-x-4"></div>
               )}
 
-              <div className="relative p-6 lg:p-8 border-2 border-white/10 hover:border-white/30 transition-colors">
-                {/* Step Number - prominent */}
-                <div className="absolute -top-5 -right-5 w-16 h-16 bg-slate-900 border-2 border-white flex items-center justify-center">
-                  <span className="font-display text-3xl font-black text-white">{step.number}</span>
+              <div className="relative h-full p-6 border-2 border-white/10 hover:border-white/30 transition-colors">
+                {/* Step Number - prominent, aligned to grid */}
+                <div className="absolute -top-4 -right-4 w-14 h-14 bg-slate-900 border-2 border-white flex items-center justify-center">
+                  <span className="font-display text-2xl font-black text-white">{step.number}</span>
                 </div>
 
                 {/* Icon Container */}
@@ -74,7 +74,7 @@ export default function HowItWorks() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-heading-sm mb-4">
+                <h3 className="text-heading-sm mb-3">
                   {step.title}
                 </h3>
                 <p className="text-body">
