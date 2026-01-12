@@ -70,11 +70,11 @@ export default function UseCases() {
         </div>
 
         {/* Use Case Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {useCases.map((useCase, index) => (
             <div
               key={index}
-              className="group p-8 bg-slate-900 border-2 border-white/10 hover:border-white/40 hover:bg-slate-900/80 transition-all"
+              className="group flex flex-col p-6 md:p-8 bg-slate-900 border-2 border-white/10 hover:border-white/40 hover:bg-slate-900/80 transition-all"
             >
               {/* Icon */}
               <div className="w-10 h-10 bg-slate-800 flex items-center justify-center text-white mb-8">
@@ -95,7 +95,7 @@ export default function UseCases() {
               </h3>
 
               {/* Features List */}
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 flex-grow">
                 {useCase.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3 text-body">
                     <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -107,7 +107,7 @@ export default function UseCases() {
               </ul>
 
               {/* CTA Link */}
-              <a href="#book" className="group/link inline-flex items-center gap-2 text-white font-bold border-b-2 border-white hover:text-brand-blue hover:border-brand-blue transition-colors">
+              <a href="#book" className="group/link mt-8 inline-flex items-center gap-2 text-white font-bold border-b-2 border-white hover:text-brand-blue hover:border-brand-blue transition-colors">
                 Learn More
                 <svg className="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
