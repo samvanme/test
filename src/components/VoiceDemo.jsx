@@ -3,21 +3,22 @@ import { CONTACT } from '../constants/config';
 export default function VoiceDemo() {
   return (
     <section className="section-brutal relative overflow-hidden" id="demo">
-      {/* Subtle static gradient */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(0,171,226,0.05)_0%,transparent_60%)]"></div>
+      {/* Grid overlay - matches Hero */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:80px_80px]"></div>
 
       <div className="container-brutal relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 border-2 border-white/20 mb-6">
-            <span className="text-overline">
-              Live AI Voice Agents
-            </span>
+        {/* Section header - asymmetric, left-aligned */}
+        <div className="mb-16 max-w-2xl">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="text-mono text-slate-600">01</span>
+            <div className="h-px flex-1 bg-white/10"></div>
           </div>
           <h2 className="text-heading mb-4">
-            Experience the System in Action
+            Hear the System
           </h2>
-          <p className="text-body-lg max-w-2xl mx-auto">
-            Hear how our AI agents handle real revenue and service conversations
+          <p className="text-body-lg">
+            AI agents handling revenue and service conversations.
+            Real voices. Real results.
           </p>
         </div>
 
