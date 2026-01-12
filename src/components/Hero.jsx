@@ -35,47 +35,33 @@ export default function Hero() {
             Integrated with your systems. Measured in your dashboards.
           </p>
 
-          {/* CTA Buttons - brutalist style */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          {/* CTA Buttons - brutalist style, left-aligned */}
+          <div className="flex flex-col sm:flex-row items-start gap-4 mb-10">
             <a
               href={`tel:${CONTACT.phone}`}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-brand-blue text-white font-bold border-2 border-white shadow-brutal hover:shadow-brutal-lg active:shadow-brutal-sm transition-all"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-brand-blue text-white font-bold border-2 border-white shadow-brutal hover:shadow-brutal-lg active:shadow-brutal-sm active:translate-x-0.5 active:translate-y-0.5 transition-all"
             >
-              <span className="relative flex h-3 w-3">
+              <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
               </span>
               Try AI Agent Now
             </a>
-            <button className="inline-flex items-center gap-2 px-8 py-4 text-white font-bold border-2 border-white/40 hover:border-white hover:bg-white/5 transition-colors">
-              Book Strategy Call
+            <a
+              href="#demo"
+              className="inline-flex items-center gap-2 px-8 py-4 text-white font-bold border-2 border-white/30 hover:border-white hover:bg-white/5 transition-all"
+            >
+              See Demo
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
               </svg>
-            </button>
+            </a>
           </div>
 
-          {/* Trust Line */}
-          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-slate-400">
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-              </svg>
-              <span>CRM Integration</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-              </svg>
-              <span>Full Attribution</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-              </svg>
-              <span>Governed Systems</span>
-            </div>
-          </div>
+          {/* Trust Line - minimal text */}
+          <p className="text-mono text-slate-500">
+            CRM Integration · Full Attribution · Governed Systems
+          </p>
         </div>
       </div>
     </section>
