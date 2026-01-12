@@ -59,18 +59,18 @@ export default function HowItWorks() {
             <div key={index} className="relative">
               {/* Connector Line (desktop only) */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-white/20 -translate-x-6"></div>
+                <div className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-white/40 -translate-x-8"></div>
               )}
 
-              <div className="relative p-6 border-2 border-white/10 hover:border-white/30 transition-colors">
-                {/* Icon Container */}
-                <div className="w-14 h-14 mb-6 bg-brand-blue border-2 border-white flex items-center justify-center text-white shadow-brutal">
-                  {step.icon}
+              <div className="relative p-6 lg:p-8 border-2 border-white/10 hover:border-white/30 transition-colors">
+                {/* Step Number - prominent */}
+                <div className="absolute -top-5 -right-5 w-16 h-16 bg-slate-900 border-2 border-white flex items-center justify-center">
+                  <span className="font-display text-3xl font-black text-white">{step.number}</span>
                 </div>
 
-                {/* Step Number */}
-                <div className="absolute -top-4 -right-4 w-14 h-14 bg-slate-900 border-2 border-white/40 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">{step.number}</span>
+                {/* Icon Container */}
+                <div className="w-12 h-12 mb-6 bg-brand-blue flex items-center justify-center text-white">
+                  {step.icon}
                 </div>
 
                 {/* Content */}
