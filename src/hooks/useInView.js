@@ -1,6 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 
 /**
+ * Check if user prefers reduced motion (SSR-safe)
+ */
+function checkReducedMotion() {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+/**
  * useInView - Intersection Observer hook for scroll-triggered animations
  *
  * @example
@@ -14,9 +22,10 @@ import { useState, useEffect, useRef } from 'react';
  * }
  */
 export function useInView(options = {}) {
-  const [isInView, setIsInView] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef(null);
+  // Initialize to true if user prefers reduced motion (SSR-safe with lazy initializer)
+  const [isInView, setIsInView] = useState(() => checkReducedMotion());
+  const hasAnimatedRef = useRef(checkReducedMotion());
 
   const {
     threshold = 0.1,
@@ -28,23 +37,15 @@ export function useInView(options = {}) {
     const element = ref.current;
     if (!element) return;
 
-    // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      setIsInView(true);
-      setHasAnimated(true);
-      return;
-    }
-
-    // If already animated and triggerOnce, skip observer
-    if (triggerOnce && hasAnimated) return;
+    // Skip observer if user prefers reduced motion (already set in initial state)
+    if (hasAnimatedRef.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
           if (triggerOnce) {
-            setHasAnimated(true);
+            hasAnimatedRef.current = true;
             observer.disconnect();
           }
         } else if (!triggerOnce) {
@@ -57,7 +58,7 @@ export function useInView(options = {}) {
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, [threshold, rootMargin, triggerOnce, hasAnimated]);
+  }, [threshold, rootMargin, triggerOnce]);
 
   return [ref, isInView];
 }

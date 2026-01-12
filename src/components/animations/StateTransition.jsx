@@ -1,16 +1,14 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 /**
  * StateTransition - Animated transitions between UI states
  *
+ * Uses CSS transitions controlled by the show prop. No internal state needed.
+ *
  * @example
  * <StateTransition show={isVisible} enter="fade">
  *   <Content />
- * </StateTransition>
- *
- * <StateTransition show={isOpen} enter="slide-up" duration="fast">
- *   <Modal />
  * </StateTransition>
  */
 export default function StateTransition({
@@ -21,9 +19,8 @@ export default function StateTransition({
   onEnter,
   onExit,
 }) {
-  const [shouldRender, setShouldRender] = useState(show);
-  const [isAnimating, setIsAnimating] = useState(false);
   const nodeRef = useRef(null);
+  const prevShowRef = useRef(show);
 
   const durations = {
     fast: 150,
@@ -33,55 +30,47 @@ export default function StateTransition({
 
   const durationMs = durations[duration];
 
+  // Call callbacks on show change
   useEffect(() => {
-    if (show) {
-      setShouldRender(true);
-      // Small delay to ensure DOM is ready before animation
-      requestAnimationFrame(() => {
-        setIsAnimating(true);
-        onEnter?.();
-      });
-    } else {
-      setIsAnimating(false);
+    if (show && !prevShowRef.current) {
+      onEnter?.();
+    } else if (!show && prevShowRef.current) {
       onExit?.();
-      const timer = setTimeout(() => {
-        setShouldRender(false);
-      }, durationMs);
-      return () => clearTimeout(timer);
     }
-  }, [show, durationMs, onEnter, onExit]);
+    prevShowRef.current = show;
+  }, [show, onEnter, onExit]);
 
-  if (!shouldRender) return null;
-
-  // Animation classes based on enter type and state
+  // Animation classes based on enter type and show state
   const getAnimationClasses = () => {
     const baseTransition = `transition-all duration-${durationMs === 150 ? '150' : durationMs === 300 ? '300' : '500'}`;
 
     const animations = {
       fade: {
-        initial: 'opacity-0',
-        animate: 'opacity-100',
+        hidden: 'opacity-0 pointer-events-none',
+        visible: 'opacity-100 pointer-events-auto',
       },
       'slide-up': {
-        initial: 'opacity-0 translate-y-4',
-        animate: 'opacity-100 translate-y-0',
+        hidden: 'opacity-0 translate-y-4 pointer-events-none',
+        visible: 'opacity-100 translate-y-0 pointer-events-auto',
       },
       'slide-down': {
-        initial: 'opacity-0 -translate-y-4',
-        animate: 'opacity-100 translate-y-0',
+        hidden: 'opacity-0 -translate-y-4 pointer-events-none',
+        visible: 'opacity-100 translate-y-0 pointer-events-auto',
       },
       scale: {
-        initial: 'opacity-0 scale-95',
-        animate: 'opacity-100 scale-100',
+        hidden: 'opacity-0 scale-95 pointer-events-none',
+        visible: 'opacity-100 scale-100 pointer-events-auto',
       },
     };
 
     const anim = animations[enter] || animations.fade;
-    const state = isAnimating ? anim.animate : anim.initial;
+    const state = show ? anim.visible : anim.hidden;
 
     return `${baseTransition} ${state} motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:scale-100`;
   };
 
+  // Always render but hide with CSS when not showing
+  // This avoids complex mount/unmount state management
   return (
     <div
       ref={nodeRef}
@@ -90,6 +79,7 @@ export default function StateTransition({
         transitionDuration: `${durationMs}ms`,
         transitionTimingFunction: 'var(--ease-out-expo)',
       }}
+      aria-hidden={!show}
     >
       {children}
     </div>
