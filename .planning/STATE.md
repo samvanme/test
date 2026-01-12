@@ -4,7 +4,7 @@
 
 **Milestone**: 1 — AI-Native Website Launch
 **Phase**: 3 — Section Redesign
-**Status**: Ready to Plan
+**Status**: Ready to Execute
 
 ## Progress
 
@@ -24,9 +24,10 @@
 Phase 2 Design System completed with 15 commits. Implemented brutalist design tokens, typography (Darker Grotesque, Space Grotesk, IBM Plex Mono), shadow system, and refactored all major components.
 
 ### Next Action
-Plan Phase 3: Section Redesign
-- Run `/gsd:plan-phase` to create execution plan
-- Design system tokens now available for layout work
+Execute Phase 3 plans:
+- Plan A: Above-the-fold (Hero, VoiceDemo) - 3 tasks
+- Plan B: Core content sections (UseCases, HowItWorks, Stats, FinalCTA, Footer) - 6 tasks
+- Run `/gsd:execute-plan .planning/phases/03-section-redesign/03-A-PLAN.md`
 
 ### Blockers
 None

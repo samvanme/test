@@ -51,6 +51,7 @@ Transform the marketing landing page into an AI-native experience that demonstra
 
 **Research needed**: No — design system from Phase 2 guides this
 **Estimated scope**: Large
+**Plans**: 2 (03-A: Above-the-fold, 03-B: Core content)
 
 ---
 
