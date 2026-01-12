@@ -19,33 +19,41 @@ export default function Stats() {
   ];
 
   return (
-    <section id="results" className="section-brutal overflow-hidden">
-      <div className="container-brutal">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 border-2 border-white/20 mb-6">
-            <span className="text-overline">
-              Measured Results
-            </span>
+    <section id="results" className="section-brutal overflow-hidden relative">
+      {/* Grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] sm:bg-[size:60px_60px] lg:bg-[size:80px_80px]"></div>
+
+      <div className="container-brutal relative z-10">
+        {/* Vertical accent line - hidden on mobile */}
+        <div className="hidden sm:block absolute left-6 lg:left-12 top-0 bottom-0 w-1 bg-brand-blue"></div>
+
+        {/* Section Header - asymmetric, left-aligned */}
+        <div className="mb-10 sm:mb-16 max-w-2xl sm:pl-6 lg:pl-8">
+          <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+            <span className="text-mono text-slate-600 text-xs sm:text-sm">04</span>
+            <div className="h-px flex-1 bg-white/10"></div>
           </div>
-          <h2 className="text-heading mb-4">
-            Results Tied to{' '}
-            <span className="text-brand-blue">Revenue Outcomes</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-3 sm:mb-4">
+            Results Tied to Revenue
           </h2>
-          <p className="text-body-lg">
-            Real metrics from production AI systems
+          <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed">
+            Real metrics from production AI systems.
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        {/* Stats Grid - asymmetric layout */}
+        <div className="sm:pl-6 lg:pl-8 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-12 sm:mb-16">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center p-6 border-2 border-white/10 hover:border-white/30 transition-colors">
-              <div className="text-display-lg text-white mb-2">
-                {stat.value}
-              </div>
-              <div className="text-mono text-slate-500 uppercase">
-                {stat.label}
+            <div key={index} className="relative bg-slate-900/50 border-2 border-white/10 p-4 sm:p-6">
+              {/* Left accent - first stat gets blue */}
+              <div className={`absolute left-0 top-0 bottom-0 w-1 ${index === 0 ? 'bg-brand-blue' : 'bg-white/30'}`}></div>
+              <div className="pl-4">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-display font-black text-white mb-1 sm:mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-mono text-slate-500 text-xs sm:text-sm uppercase">
+                  {stat.label}
+                </div>
               </div>
             </div>
           ))}
