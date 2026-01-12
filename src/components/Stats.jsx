@@ -60,25 +60,29 @@ export default function Stats() {
         </div>
 
         {/* Testimonial */}
-        <div className="max-w-4xl mx-auto">
-          <div className="relative p-8 lg:p-12 bg-slate-900 border-2 border-white/20">
-            <div className="flex flex-col lg:flex-row gap-8 items-start">
-              {/* Quote */}
-              <div className="flex-1">
-                <svg className="w-10 h-10 text-brand-blue mb-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-                </svg>
-                <blockquote className="text-xl lg:text-2xl text-white leading-relaxed mb-6">
-                  "We installed the AI system inside our CRM and saw $680K in attributed revenue within 45 days. Full visibility, full control, measurable impact."
-                </blockquote>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-slate-800 border-2 border-white/20 flex items-center justify-center text-white font-bold text-lg">
-                    SV
-                  </div>
-                  <div>
-                    <div className="font-bold text-white">Slava Vidomanets</div>
-                    <div className="text-sm text-slate-400">Founder, StrataBlue</div>
-                  </div>
+        <div className="sm:pl-6 lg:pl-8">
+          <div className="relative bg-slate-900/50 border-2 border-white/10 max-w-3xl">
+            {/* Left accent bar */}
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-white"></div>
+
+            <div className="p-6 pl-8 sm:p-8 sm:pl-10 lg:p-10 lg:pl-12">
+              {/* Quote icon - white for color restraint */}
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white/30 mb-4 sm:mb-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+              </svg>
+
+              <blockquote className="text-lg sm:text-xl lg:text-2xl text-white leading-relaxed mb-6 sm:mb-8">
+                "We installed the AI system inside our CRM and saw $680K in attributed revenue within 45 days. Full visibility, full control, measurable impact."
+              </blockquote>
+
+              {/* Author info with brutalist treatment */}
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-800 border-2 border-white flex items-center justify-center text-white font-bold shadow-brutal-white-sm">
+                  SV
+                </div>
+                <div>
+                  <div className="font-bold text-white text-sm sm:text-base">Slava Vidomanets</div>
+                  <div className="text-mono text-slate-500 text-xs sm:text-sm">Founder, StrataBlue</div>
                 </div>
               </div>
             </div>
