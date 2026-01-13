@@ -1,12 +1,20 @@
+import { lazy, Suspense } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import VoiceDemo from './components/VoiceDemo';
-import UseCases from './components/UseCases';
-import HowItWorks from './components/HowItWorks';
-import Stats from './components/Stats';
-import FinalCTA from './components/FinalCTA';
-import Footer from './components/Footer';
+
+// Lazy load below-fold sections for better initial load performance
+const UseCases = lazy(() => import('./components/UseCases'));
+const HowItWorks = lazy(() => import('./components/HowItWorks'));
+const Stats = lazy(() => import('./components/Stats'));
+const FinalCTA = lazy(() => import('./components/FinalCTA'));
+const Footer = lazy(() => import('./components/Footer'));
+
+// Loading fallback with minimal height to prevent layout shift
+function SectionFallback() {
+  return <div className="min-h-screen" />;
+}
 
 function App() {
   return (
@@ -27,11 +35,13 @@ function App() {
         <Header />
         <Hero />
         <VoiceDemo />
-        <UseCases />
-        <HowItWorks />
-        <Stats />
-        <FinalCTA />
-        <Footer />
+        <Suspense fallback={<SectionFallback />}>
+          <UseCases />
+          <HowItWorks />
+          <Stats />
+          <FinalCTA />
+          <Footer />
+        </Suspense>
       </main>
     </ErrorBoundary>
   );
