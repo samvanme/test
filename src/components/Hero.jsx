@@ -28,7 +28,7 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
             </span>
-            <span className="text-overline">Production AI Systems</span>
+            <span className="text-overline">AI Integration Partner</span>
           </div>
 
           {/* Headline - responsive typography */}
@@ -42,8 +42,8 @@ export default function Hero() {
 
           {/* Single strong subheadline */}
           <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed mb-8 sm:mb-12 max-w-xl">
-            Voice agents for revenue and service operations.
-            Integrated with your systems. Measured in your dashboards.
+            We build AI systems with you, not for you.
+            From strategy through production—integrated, measured, and supported.
           </p>
 
           {/* CTA Buttons - stack on mobile, ensure 44px+ touch targets */}
@@ -71,8 +71,8 @@ export default function Hero() {
 
           {/* Trust Line - minimal text, wrap on mobile */}
           <p className="text-mono text-slate-500 text-xs sm:text-sm">
-            <span className="hidden sm:inline">CRM Integration · Full Attribution · Governed Systems</span>
-            <span className="sm:hidden">CRM · Attribution · Governed</span>
+            <span className="hidden sm:inline">Strategy → Design → Production → Support</span>
+            <span className="sm:hidden">Strategy → Production → Support</span>
           </p>
         </div>
       </div>
