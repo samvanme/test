@@ -52,6 +52,17 @@ export default function DemoAgent({
       waveformColor: 'brand',
       transcriptAccent: 'brand',
     },
+    sales: {
+      accent: 'bg-brand-blue',
+      accentBorder: 'border-brand-blue',
+      accentText: 'text-brand-blue',
+      accentBg: 'bg-brand-blue/10',
+      buttonBg: 'bg-brand-blue',
+      buttonBorder: 'border-white',
+      buttonShadow: 'shadow-brutal-sm hover:shadow-brutal',
+      waveformColor: 'brand',
+      transcriptAccent: 'brand',
+    },
     service: {
       accent: 'bg-white',
       accentBorder: 'border-white/30',
@@ -63,6 +74,30 @@ export default function DemoAgent({
       buttonTextColor: 'text-slate-900',
       waveformColor: 'white',
       transcriptAccent: 'white',
+    },
+    support: {
+      accent: 'bg-white',
+      accentBorder: 'border-white/30',
+      accentText: 'text-white',
+      accentBg: 'bg-white/5',
+      buttonBg: 'bg-white',
+      buttonBorder: 'border-white',
+      buttonShadow: 'shadow-brutal-white-sm hover:shadow-brutal-white',
+      buttonTextColor: 'text-slate-900',
+      waveformColor: 'white',
+      transcriptAccent: 'white',
+    },
+    operations: {
+      accent: 'bg-amber-500',
+      accentBorder: 'border-amber-500',
+      accentText: 'text-amber-500',
+      accentBg: 'bg-amber-500/10',
+      buttonBg: 'bg-amber-500',
+      buttonBorder: 'border-white',
+      buttonShadow: 'shadow-brutal-sm hover:shadow-brutal',
+      buttonTextColor: 'text-slate-900',
+      waveformColor: 'amber',
+      transcriptAccent: 'amber',
     },
   };
 
@@ -285,7 +320,7 @@ export default function DemoAgent({
 
 DemoAgent.propTypes = {
   /** Agent type determines accent color */
-  agentType: PropTypes.oneOf(['revenue', 'service']),
+  agentType: PropTypes.oneOf(['revenue', 'service', 'sales', 'support', 'operations']),
   /** Display name for the agent */
   agentName: PropTypes.string,
   /** Current demo status */

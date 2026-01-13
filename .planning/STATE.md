@@ -5,7 +5,7 @@
 **Milestone**: 1 — AI-Native Website Launch
 **Phase**: 8 — Chat UI Use Case Toggle
 **Plan**: 08-01 (Chat UI Use Case Toggle)
-**Status**: Planned
+**Status**: Complete
 
 ## Progress
 
@@ -18,25 +18,25 @@
 | 5 | AI Demo Integration | ✅ Complete (05-01, 05-01.1) |
 | 6 | Content & Lead Flow | ✅ Complete (06-01) |
 | 7 | Polish & Launch | ✅ Complete (07-01) |
-| 8 | Chat UI Use Case Toggle | 📋 Planned (08-01) |
+| 8 | Chat UI Use Case Toggle | ✅ Complete (08-01) |
 
 ## Context
 
 ### Last Action
-Plan 08-01 created (Chat UI Use Case Toggle). 10 tasks:
-1. Add horizontal slide animations to Tailwind config
-2. Create DemoTabs component with ARIA accessibility
-3. Create Operations scenarios and agent config
-4. Add Operations agent styling to DemoAgent
-5. Create DemoCarousel component
-6. Refactor DemoController to single panel layout
-7. Implement carousel auto-advance logic
-8. Update transition prompt for tab selection
-9. Remove phone CTA from VoiceDemo
-10. Polish and accessibility testing
+Plan 08-01 executed (Chat UI Use Case Toggle). 10 tasks, 8 commits:
+1. Added horizontal slide animations to Tailwind config
+2. Created DemoTabs component with ARIA tablist pattern
+3. Created Operations scenarios (Jordan AI) and USE_CASES config
+4. Added Operations agent styling (amber accent) to DemoAgent
+5. Created DemoCarousel component with CSS transforms
+6. Refactored DemoController to single panel layout with tabs
+7. Implemented carousel auto-advance with pause on hover
+8. Updated transition prompt for tab-based use case selection
+9. Removed phone CTA from VoiceDemo
+10. Fixed ESLint issues and verified build
 
 ### Next Action
-Execute Plan 08-01 to implement chat UI use case toggle
+Milestone 1 is complete. Ready for next milestone or feature request.
 
 ### Blockers
 None
@@ -52,7 +52,7 @@ None
 - **Animation policy**: Functional motion only (waveform, ping kept; aurora, float removed)
 - **Layout approach**: Left-aligned asymmetric (not centered)
 - **Section numbers**: Use numbered prefixes (01, 02...) for section headers
-- **Agent differentiation**: Revenue = blue accent, Service = white accent
+- **Agent differentiation**: Revenue = blue accent, Service = white accent, Operations = amber accent
 - **FinalCTA**: Kept centered layout (appropriate for CTA sections)
 - **Footer**: Simplified links, solid white logo (no gradient)
 - **Animation components**: CSS-first approach to avoid React state complexity
@@ -61,6 +61,7 @@ None
 - **Accessibility**: Skip link, ARIA labels, focus-visible with 3px white outline
 - **SEO**: Meta tags with Open Graph and Twitter cards
 - **Analytics**: useAnalytics hook with event stubs (page_view, demo_mode_change, form_submit, cta_click)
+- **Demo UI**: Single chat window with tabbed carousel (Sales, Support, Operations)
 
 ### Decisions Pending
 - AI backend choice for Phase 5-02 (requires research)
@@ -83,6 +84,7 @@ None
 - 2026-01-13: Plan 07-01 planned (8 tasks)
 - 2026-01-13: Plan 07-01 executed (9 tasks, 9 commits)
 - 2026-01-13: Plan 08-01 planned (10 tasks)
+- 2026-01-13: Plan 08-01 executed (10 tasks, 8 commits)
 
 ---
 *Last updated: 2026-01-13*

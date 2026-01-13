@@ -16,6 +16,7 @@ export default function Waveform({
   const colorClasses = {
     brand: 'bg-brand-blue',
     white: 'bg-white',
+    amber: 'bg-amber-500',
   };
 
   const bgColor = colorClasses[color] || colorClasses.brand;
@@ -65,7 +66,7 @@ Waveform.propTypes = {
   /** Animation state */
   state: PropTypes.oneOf(['playing', 'paused', 'inactive']),
   /** Bar color theme */
-  color: PropTypes.oneOf(['brand', 'white']),
+  color: PropTypes.oneOf(['brand', 'white', 'amber']),
   /** Number of bars to display */
   bars: PropTypes.number,
 };

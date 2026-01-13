@@ -18,6 +18,8 @@
 
 export { default as DemoController } from './DemoController';
 export { default as DemoAgent } from './DemoAgent';
+export { default as DemoTabs } from './DemoTabs';
+export { default as DemoCarousel } from './DemoCarousel';
 export { default as ToolCallDisplay } from './ToolCallDisplay';
 export { default as ConversationTranscript } from './ConversationTranscript';
 export { default as DemoError } from './DemoError';
