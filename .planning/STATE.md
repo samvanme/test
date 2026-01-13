@@ -3,9 +3,9 @@
 ## Current Status
 
 **Milestone**: 1 — AI-Native Website Launch
-**Phase**: 7 — Polish & Launch
-**Plan**: 07-01 (Polish & Launch Preparation)
-**Status**: Complete
+**Phase**: 8 — Chat UI Use Case Toggle
+**Plan**: 08-01 (Chat UI Use Case Toggle)
+**Status**: Planned
 
 ## Progress
 
@@ -18,26 +18,25 @@
 | 5 | AI Demo Integration | ✅ Complete (05-01, 05-01.1) |
 | 6 | Content & Lead Flow | ✅ Complete (06-01) |
 | 7 | Polish & Launch | ✅ Complete (07-01) |
+| 8 | Chat UI Use Case Toggle | 📋 Planned (08-01) |
 
 ## Context
 
 ### Last Action
-Plan 07-01 executed (Polish & Launch Preparation). 9 commits:
-- Fixed lint error in DemoAgent.jsx
-- Added skip link for keyboard navigation
-- Added ARIA labels to interactive elements
-- Improved focus states across site
-- Added SEO meta tags and Open Graph
-- Added lazy loading for below-fold sections
-- Added production build configuration
-- Added analytics hooks foundation
-- Improved mobile responsiveness and touch targets
+Plan 08-01 created (Chat UI Use Case Toggle). 10 tasks:
+1. Add horizontal slide animations to Tailwind config
+2. Create DemoTabs component with ARIA accessibility
+3. Create Operations scenarios and agent config
+4. Add Operations agent styling to DemoAgent
+5. Create DemoCarousel component
+6. Refactor DemoController to single panel layout
+7. Implement carousel auto-advance logic
+8. Update transition prompt for tab selection
+9. Remove phone CTA from VoiceDemo
+10. Polish and accessibility testing
 
 ### Next Action
-Milestone 1 complete. Ready for:
-- Production deployment
-- Connect form backend (Plan 06-02)
-- Connect AI demo backend (Plan 05-02)
+Execute Plan 08-01 to implement chat UI use case toggle
 
 ### Blockers
 None
@@ -83,6 +82,7 @@ None
 - 2026-01-13: Plan 06-01 executed (7 tasks, 7 commits)
 - 2026-01-13: Plan 07-01 planned (8 tasks)
 - 2026-01-13: Plan 07-01 executed (9 tasks, 9 commits)
+- 2026-01-13: Plan 08-01 planned (10 tasks)
 
 ---
 *Last updated: 2026-01-13*
