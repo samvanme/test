@@ -117,6 +117,22 @@ Transform the marketing landing page into an AI-native experience that demonstra
 
 ---
 
+### Phase 8: Chat UI Use Case Toggle
+**Goal**: Transform demo into single chat window with tabbed use case carousel
+
+- Single chat window replacing side-by-side agent layout
+- Tabbed navigation (Sales, Support, Operations) with distinct colors
+- Carousel auto-advances through all 3 use cases during simulation
+- Tab click skips to that use case's simulation
+- After simulation, tab selection enters interactive mode
+- Phone CTA removed from demo section
+- WCAG 2.1 AA compliant tabs and carousel
+
+**Status**: Planned
+**Plans**: 1 (08-01)
+
+---
+
 ## Milestone 1 Complete
 
 All 7 phases of Milestone 1 are now complete. The AI-native website is production-ready with:
