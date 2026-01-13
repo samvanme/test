@@ -27,7 +27,7 @@ export default function DemoAgent({
   agentName = 'AI Agent',
   status = 'idle',
   messages = [],
-  currentToolCall = null,
+  _currentToolCall = null,
   isStreaming = false,
   streamingText = '',
   isInteractive = false,
