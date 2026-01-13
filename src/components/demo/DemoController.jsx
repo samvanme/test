@@ -418,16 +418,16 @@ export default function DemoController({
 
       {/* Transition prompt */}
       <StateTransition show={showTransitionPrompt} enter="slide-up" duration="normal">
-        <div className="bg-slate-800/50 border-2 border-brand-blue/50 p-6 text-center">
-          <h3 className="text-xl font-bold text-white mb-2">
+        <div className="bg-slate-800/50 border-2 border-brand-blue/50 p-4 sm:p-6 text-center">
+          <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
             Want to try it yourself?
           </h3>
-          <p className="text-slate-400 mb-4">
+          <p className="text-slate-400 text-sm sm:text-base mb-4">
             Switch to interactive mode and have a real conversation with our AI agents.
           </p>
           <button
             onClick={handleTryInteractive}
-            className="px-6 py-3 bg-brand-blue text-white font-bold uppercase tracking-wider border-2 border-white shadow-brutal-sm hover:shadow-brutal active:translate-x-0.5 active:translate-y-0.5 transition-all"
+            className="px-5 sm:px-6 py-3 min-h-[48px] bg-brand-blue text-white font-bold text-sm sm:text-base uppercase tracking-wider border-2 border-white shadow-brutal-sm hover:shadow-brutal active:translate-x-0.5 active:translate-y-0.5 transition-all"
           >
             Try Interactive Demo
           </button>

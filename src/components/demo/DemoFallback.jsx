@@ -60,11 +60,11 @@ export default function DemoFallback({
         </div>
 
         {/* Actions */}
-        <div className="mt-4 flex items-center gap-3">
+        <div className="mt-4 flex flex-wrap items-center gap-3">
           {onRetry && (
             <button
               onClick={onRetry}
-              className="px-4 py-2 bg-transparent text-amber-400 font-bold text-sm uppercase tracking-wider border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-500/10 transition-all"
+              className="px-4 py-2 min-h-[44px] bg-transparent text-amber-400 font-bold text-sm uppercase tracking-wider border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-500/10 transition-all"
             >
               Try Again
             </button>
@@ -72,7 +72,7 @@ export default function DemoFallback({
           {onContinue && (
             <button
               onClick={onContinue}
-              className="px-4 py-2 bg-amber-500 text-slate-900 font-bold text-sm uppercase tracking-wider border-2 border-amber-400 shadow-brutal-sm hover:shadow-brutal active:translate-x-0.5 active:translate-y-0.5 transition-all"
+              className="px-4 py-2 min-h-[44px] bg-amber-500 text-slate-900 font-bold text-sm uppercase tracking-wider border-2 border-amber-400 shadow-brutal-sm hover:shadow-brutal active:translate-x-0.5 active:translate-y-0.5 transition-all"
             >
               Continue Demo
             </button>
