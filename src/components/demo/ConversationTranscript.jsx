@@ -94,7 +94,7 @@ export default function ConversationTranscript({
   return (
     <div
       ref={scrollRef}
-      className="demo-transcript flex flex-col-reverse gap-3 max-h-48 overflow-y-auto"
+      className="demo-transcript flex flex-col-reverse gap-3 flex-1 overflow-y-auto"
       style={scrollbarStyles}
       role="log"
       aria-label="Conversation transcript"
