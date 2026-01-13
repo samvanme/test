@@ -4,8 +4,8 @@
 
 **Milestone**: 1 — AI-Native Website Launch
 **Phase**: 5 — AI Demo Integration
-**Plan**: 05-01 (Interactive Demo Architecture & UI Framework)
-**Status**: Complete
+**Plan**: 05-01.1 (Demo UI Refinements)
+**Status**: Planned
 
 ## Progress
 
@@ -22,25 +22,20 @@
 ## Context
 
 ### Last Action
-Phase 5-01 executed (Interactive Demo Architecture & UI Framework). 10 tasks, 10 commits:
-- Created demo component architecture documentation
-- Implemented useDemoState hook (finite state machine)
-- Created ToolCallDisplay, ConversationTranscript components
-- Created DemoError, DemoFallback, DemoTimeout components
-- Implemented useDemoConnection hook with mock mode
-- Created DemoAgent component (main interactive card)
-- Created DemoController (orchestrates hybrid demo flow)
-- Refactored VoiceDemo to use new architecture
-- Verified build and lint pass
+Phase 5-01.1 planned (Demo UI Refinements). 5 tasks:
+- Custom scrollbar styling (dark, thin, brutalist)
+- Bottom-anchored chat layout
+- Avatar icons for agents/callers
+- Rotating tool call scenarios
+- Build/lint verification
 
 ### Next Action
-Plan Phase 5-02 (Backend Integration):
-- Decide on connection mode: WebSocket vs polling
-- Choose voice API: Web Speech API vs cloud service
-- Select AI backend for agent responses
-- Implement real connection and tool calls
+Execute Phase 5-01.1:
+```bash
+/gsd:execute-plan 05-01.1
+```
 
-OR skip to Phase 6 if demo improvements can wait.
+After 5-01.1, plan Phase 5-02 (Backend Integration) or skip to Phase 6.
 
 ### Blockers
 None
@@ -77,6 +72,7 @@ None
 - 2026-01-12: Phase 4-01 executed (11 tasks, 11 commits)
 - 2026-01-12: Phase 5-01 planned (10 tasks)
 - 2026-01-13: Phase 5-01 executed (10 tasks, 10 commits)
+- 2026-01-13: Phase 5-01.1 planned (5 tasks)
 
 ---
 *Last updated: 2026-01-13*
