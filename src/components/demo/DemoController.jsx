@@ -25,7 +25,7 @@ import DemoTimeout from './DemoTimeout';
 
 // Rotating simulated conversation scenarios
 // Each agent has multiple scenarios showcasing different tool calls
-const REVENUE_SCENARIOS = [
+const SALES_SCENARIOS = [
   // Scenario 1: Pricing lookup
   [
     { role: 'assistant', content: "Hello! I'm Alex, your AI sales assistant. How can I help you today?", delay: 2000 },
@@ -86,6 +86,44 @@ const SERVICE_SCENARIOS = [
     { role: 'assistant', content: "I've created ticket #4827 and flagged it as high priority. A specialist will reach out within 2 hours. Is there anything else I can document for them?", delay: 4500 },
   ],
 ];
+
+const OPERATIONS_SCENARIOS = [
+  // Scenario 1: Interview scheduling
+  [
+    { role: 'assistant', content: "Hello! I'm Jordan, your AI operations assistant. How can I help you today?", delay: 2000 },
+    { role: 'user', content: "I need to schedule interviews for the senior developer position.", delay: 3500 },
+    { role: 'assistant', content: "I'll check the availability of your interview panel and the candidates.", delay: 3000, toolCall: { name: 'check_availability', params: { role: 'senior_developer', panel: ['hiring_manager', 'tech_lead'] } } },
+    { role: 'assistant', content: "I've found slots that work for everyone. I can schedule three candidates this Thursday afternoon. Should I send the calendar invites?", delay: 4000 },
+  ],
+  // Scenario 2: Candidate qualification call
+  [
+    { role: 'assistant', content: "Hello! I'm Jordan, your AI operations assistant. How can I help you today?", delay: 2000 },
+    { role: 'user', content: "Can you do a quick phone screen for the marketing manager applicant?", delay: 3500 },
+    { role: 'assistant', content: "Of course! Let me pull up the job requirements and initiate the screening call.", delay: 3000, toolCall: { name: 'initiate_screening', params: { role: 'marketing_manager', type: 'phone_screen' } } },
+    { role: 'assistant', content: "I've completed the initial screening. The candidate meets 8 of 10 requirements and has strong leadership experience. I'm sending you the summary now.", delay: 4500 },
+  ],
+  // Scenario 3: Reference check follow-up
+  [
+    { role: 'assistant', content: "Hello! I'm Jordan, your AI operations assistant. How can I help you today?", delay: 2000 },
+    { role: 'user', content: "Have we received all the reference checks for the finance director candidate?", delay: 3500 },
+    { role: 'assistant', content: "Let me check the status of the reference requests.", delay: 3000, toolCall: { name: 'check_references', params: { candidate_id: 'FD-2024-089', status: 'pending' } } },
+    { role: 'assistant', content: "Two of three references have responded with positive feedback. I've sent a follow-up to the third reference and will notify you once it's complete.", delay: 4500 },
+  ],
+  // Scenario 4: Onboarding coordination
+  [
+    { role: 'assistant', content: "Hello! I'm Jordan, your AI operations assistant. How can I help you today?", delay: 2000 },
+    { role: 'user', content: "We have a new hire starting Monday. Is everything ready?", delay: 3500 },
+    { role: 'assistant', content: "I'll verify the onboarding checklist for the new team member.", delay: 3000, toolCall: { name: 'verify_onboarding', params: { start_date: 'monday', checklist: ['equipment', 'accounts', 'badge', 'training'] } } },
+    { role: 'assistant', content: "Equipment is ready, accounts are provisioned, and badge is at reception. I've scheduled their orientation for 9 AM Monday and notified their manager.", delay: 4500 },
+  ],
+];
+
+// Use case configuration
+const USE_CASES = {
+  sales: { name: 'Sales', agent: 'Alex AI', color: 'brand-blue', scenarios: SALES_SCENARIOS },
+  support: { name: 'Support', agent: 'Sarah AI', color: 'white', scenarios: SERVICE_SCENARIOS },
+  operations: { name: 'Operations', agent: 'Jordan AI', color: 'amber-500', scenarios: OPERATIONS_SCENARIOS },
+};
 
 // Helper to get a scenario - rotates through on each call
 const getScenarioIndex = (currentIndex, scenarios) => {
@@ -181,14 +219,14 @@ export default function DemoController({
 
     const runSimulation = async (agent) => {
       // Get the current scenario for this agent
-      const scenarios = agent === 'revenue' ? REVENUE_SCENARIOS : SERVICE_SCENARIOS;
+      const scenarios = agent === 'revenue' ? SALES_SCENARIOS : SERVICE_SCENARIOS;
       const currentScenarioIdx = scenarioIndex[agent];
       const script = scenarios[currentScenarioIdx];
       const step = simulatedStep[agent];
 
       if (step >= script.length) {
         // Simulation complete for this agent
-        const revenueScript = REVENUE_SCENARIOS[scenarioIndex.revenue];
+        const revenueScript = SALES_SCENARIOS[scenarioIndex.revenue];
         const serviceScript = SERVICE_SCENARIOS[scenarioIndex.service];
         if (simulatedStep.revenue >= revenueScript.length &&
             simulatedStep.service >= serviceScript.length) {
@@ -319,7 +357,7 @@ export default function DemoController({
   const handleContinueSimulated = useCallback(() => {
     // Rotate to next scenario for each agent
     setScenarioIndex((prev) => ({
-      revenue: getScenarioIndex(prev.revenue, REVENUE_SCENARIOS),
+      revenue: getScenarioIndex(prev.revenue, SALES_SCENARIOS),
       service: getScenarioIndex(prev.service, SERVICE_SCENARIOS),
     }));
     send(DEMO_EVENTS.START_SIMULATED);
