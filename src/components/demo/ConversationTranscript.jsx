@@ -2,6 +2,35 @@ import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { StateTransition, ThinkingState } from '../animations';
 
+// Minimalist avatar icons - post-modern line art style (defined outside component for stability)
+const AgentIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+    {/* Circuit/chip style AI icon */}
+    <rect x="4" y="4" width="12" height="12" strokeLinecap="square" />
+    <circle cx="10" cy="10" r="2" />
+    <line x1="10" y1="2" x2="10" y2="4" strokeLinecap="square" />
+    <line x1="10" y1="16" x2="10" y2="18" strokeLinecap="square" />
+    <line x1="2" y1="10" x2="4" y2="10" strokeLinecap="square" />
+    <line x1="16" y1="10" x2="18" y2="10" strokeLinecap="square" />
+  </svg>
+);
+
+AgentIcon.propTypes = {
+  className: PropTypes.string,
+};
+
+const UserIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+    {/* Simple person silhouette */}
+    <circle cx="10" cy="6" r="3" />
+    <path d="M4 18v-2c0-2.2 2.7-4 6-4s6 1.8 6 4v2" strokeLinecap="square" />
+  </svg>
+);
+
+UserIcon.propTypes = {
+  className: PropTypes.string,
+};
+
 /**
  * ConversationTranscript - Streaming conversation display
  *
@@ -33,11 +62,13 @@ export default function ConversationTranscript({
       border: 'border-brand-blue',
       bg: 'bg-brand-blue/10',
       accent: 'bg-brand-blue',
+      iconColor: 'text-brand-blue',
     },
     white: {
       border: 'border-white/30',
       bg: 'bg-white/5',
       accent: 'bg-white',
+      iconColor: 'text-white',
     },
   };
 
@@ -95,7 +126,8 @@ export default function ConversationTranscript({
           <div className={`max-w-[85%] ${accent.bg} border-2 ${accent.border}`}>
             {/* Streaming header */}
             <div className="flex items-center justify-between gap-4 px-3 py-1.5 border-b border-slate-700/50">
-              <span className="text-xs font-mono text-slate-500 uppercase">
+              <span className="flex items-center gap-2 text-xs font-mono text-slate-500 uppercase">
+                <AgentIcon className={`w-4 h-4 ${accent.iconColor}`} />
                 Agent
               </span>
               <ThinkingState variant="typing" size="sm" label="Agent is typing" />
@@ -135,7 +167,12 @@ export default function ConversationTranscript({
             >
               {/* Message header */}
               <div className="flex items-center justify-between gap-4 px-3 py-1.5 border-b border-slate-700/50">
-                <span className="text-xs font-mono text-slate-500 uppercase">
+                <span className="flex items-center gap-2 text-xs font-mono text-slate-500 uppercase">
+                  {message.role === 'user' ? (
+                    <UserIcon className="w-4 h-4 text-slate-400" />
+                  ) : (
+                    <AgentIcon className={`w-4 h-4 ${accent.iconColor}`} />
+                  )}
                   {message.role === 'user' ? 'You' : 'Agent'}
                 </span>
                 <span className="text-xs font-mono text-slate-600">
