@@ -129,7 +129,7 @@ export default function DemoAgent({
   const isActiveState = ['listening', 'processing', 'responding'].includes(status);
 
   return (
-    <div className="relative bg-slate-900/50 border-2 border-white/10 hover:border-white/20 transition-colors h-[65vh] min-h-[400px] flex flex-col overflow-hidden">
+    <div className="relative bg-slate-900/50 border-2 border-white/10 hover:border-white/20 transition-colors h-[50vh] sm:h-[55vh] lg:h-[65vh] min-h-[320px] sm:min-h-[380px] lg:min-h-[400px] flex flex-col overflow-hidden">
       {/* Left accent bar */}
       <div className={`absolute left-0 top-0 bottom-0 w-1 ${style.accent}`}></div>
 
@@ -248,7 +248,7 @@ export default function DemoAgent({
                   <button
                     type="submit"
                     disabled={!textInput.trim() || isActiveState}
-                    className={`px-4 py-2 ${style.buttonBg} ${
+                    className={`px-4 py-2 min-h-[44px] ${style.buttonBg} ${
                       agentType === 'service' ? style.buttonTextColor : 'text-white'
                     } border-2 ${style.buttonBorder} font-bold text-sm ${style.buttonShadow} active:translate-x-0.5 active:translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed`}
                   >

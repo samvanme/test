@@ -50,19 +50,32 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
-    padding: 1rem 1.5rem;
+    padding: 0.75rem 1rem;
     background: white;
     color: #030712;
     font-weight: 700;
     font-size: 0.875rem;
     text-decoration: none;
-    border: 3px solid #030712;
-    box-shadow: 4px 4px 0 #030712;
+    border: 2px solid #030712;
+    box-shadow: 3px 3px 0 #030712;
+    max-width: calc(100vw - 2rem);
+    text-align: center;
   }
 
   .skip-link:focus {
-    top: 1rem;
+    top: 0.5rem;
     outline: none;
+  }
+
+  @media (min-width: 640px) {
+    .skip-link {
+      padding: 1rem 1.5rem;
+      border-width: 3px;
+      box-shadow: 4px 4px 0 #030712;
+    }
+    .skip-link:focus {
+      top: 1rem;
+    }
   }
 
   /* Grid system - 12 column with visible structure */

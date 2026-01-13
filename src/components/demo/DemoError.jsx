@@ -59,7 +59,7 @@ export default function DemoError({
           {onDismiss && (
             <button
               onClick={onDismiss}
-              className="flex-shrink-0 text-slate-500 hover:text-white transition-colors"
+              className="flex-shrink-0 w-10 h-10 flex items-center justify-center text-slate-500 hover:text-white transition-colors"
               aria-label="Dismiss error"
             >
               <svg
@@ -84,7 +84,7 @@ export default function DemoError({
           {onRetry && (
             <button
               onClick={onRetry}
-              className="px-4 py-2 bg-red-500 text-white font-bold text-sm uppercase tracking-wider border-2 border-red-400 shadow-brutal-sm hover:shadow-brutal active:translate-x-0.5 active:translate-y-0.5 transition-all"
+              className="px-4 py-2 min-h-[44px] bg-red-500 text-white font-bold text-sm uppercase tracking-wider border-2 border-red-400 shadow-brutal-sm hover:shadow-brutal active:translate-x-0.5 active:translate-y-0.5 transition-all"
             >
               Retry
             </button>
