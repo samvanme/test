@@ -488,7 +488,7 @@ export default function DemoController({
 
   return (
     <div
-      className="space-y-4"
+      className="flex flex-col flex-1 gap-2 sm:gap-4"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onFocus={handleFocus}

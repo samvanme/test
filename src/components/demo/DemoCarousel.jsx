@@ -49,14 +49,14 @@ export default function DemoCarousel({
 
   return (
     <div
-      className="relative overflow-hidden"
+      className="relative overflow-hidden flex-1 flex flex-col"
       role="region"
       aria-label="Demo carousel"
       aria-live="polite"
     >
       <div
         ref={containerRef}
-        className={`flex ${prefersReducedMotion ? '' : 'transition-transform duration-500'}`}
+        className={`flex flex-1 ${prefersReducedMotion ? '' : 'transition-transform duration-500'}`}
         style={{
           transform: `translateX(-${activeIndex * 100}%)`,
           transitionTimingFunction: prefersReducedMotion ? undefined : 'var(--ease-out-expo)',
@@ -66,7 +66,7 @@ export default function DemoCarousel({
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-full"
+            className="flex-shrink-0 w-full flex flex-col"
             role="tabpanel"
             id={`panel-${index}`}
             aria-hidden={index !== activeIndex}

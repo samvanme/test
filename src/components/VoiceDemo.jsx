@@ -31,49 +31,49 @@ export default function VoiceDemo() {
   }, []);
 
   return (
-    <section className="py-16 sm:py-24 lg:py-36 relative overflow-hidden" id="demo">
+    <section className="min-h-[100dvh] sm:min-h-0 sm:py-16 lg:py-36 relative overflow-hidden flex flex-col" id="demo">
       {/* Grid overlay - responsive sizing */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] sm:bg-[size:60px_60px] lg:bg-[size:80px_80px]"></div>
 
-      <div className="container-brutal relative z-10">
-        {/* Section header - asymmetric, left-aligned */}
+      {/* Section header - hidden on mobile, visible on larger screens */}
+      <div className="container-brutal relative z-10 hidden sm:block">
         <div
           ref={headerRef}
-          className={`mb-10 sm:mb-16 max-w-2xl transition-all duration-500 motion-reduce:transition-none ${
+          className={`mb-10 lg:mb-16 max-w-2xl transition-all duration-500 motion-reduce:transition-none ${
             isHeaderInView
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-6'
           }`}
           style={{ transitionTimingFunction: 'var(--ease-out-expo)' }}
         >
-          <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-6">
             <span className="text-mono text-slate-600 text-xs sm:text-sm">01</span>
             <div className="h-px flex-1 bg-white/10"></div>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-3 sm:mb-4">
+          <h2 className="text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-4">
             Hear the System
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed">
+          <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
             AI agents handling revenue and service conversations.
             Real voices. Real results.
           </p>
         </div>
+      </div>
 
-        {/* Demo controller with agent cards */}
-        <div
-          ref={demoRef}
-          className={`transition-all duration-700 motion-reduce:transition-none ${
-            isDemoInView
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-8'
-          }`}
-          style={{ transitionTimingFunction: 'var(--ease-out-expo)', transitionDelay: '150ms' }}
-        >
-          <DemoController
-            autoStart={isDemoInView}
-            onModeChange={handleModeChange}
-          />
-        </div>
+      {/* Demo controller - full viewport on mobile, contained on larger screens */}
+      <div
+        ref={demoRef}
+        className={`relative z-10 px-0 sm:px-6 lg:px-12 max-w-7xl sm:mx-auto flex-1 flex flex-col transition-all duration-700 motion-reduce:transition-none ${
+          isDemoInView
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 translate-y-8'
+        }`}
+        style={{ transitionTimingFunction: 'var(--ease-out-expo)', transitionDelay: '150ms' }}
+      >
+        <DemoController
+          autoStart={isDemoInView}
+          onModeChange={handleModeChange}
+        />
       </div>
     </section>
   );
