@@ -31,6 +31,18 @@ UserIcon.propTypes = {
   className: PropTypes.string,
 };
 
+// Tool icon for inline tool call artifacts
+const ToolIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" strokeLinecap="square" />
+    <circle cx="10" cy="10" r="2.5" />
+  </svg>
+);
+
+ToolIcon.propTypes = {
+  className: PropTypes.string,
+};
+
 /**
  * ConversationTranscript - Streaming conversation display
  *
@@ -187,6 +199,28 @@ export default function ConversationTranscript({
                 </p>
               </div>
 
+              {/* Tool call artifact - shows completed tool calls as persistent artifacts */}
+              {message.toolCall && (
+                <div className="mx-3 mb-2 border border-emerald-500/30 bg-emerald-500/5">
+                  <div className="flex items-center gap-2 px-2 py-1.5">
+                    <ToolIcon className="w-3.5 h-3.5 text-emerald-400" />
+                    <span className="font-mono text-xs text-emerald-400">
+                      {message.toolCall.name}
+                    </span>
+                    <span className="ml-auto text-xs font-mono text-emerald-400/60 uppercase">
+                      ✓
+                    </span>
+                  </div>
+                  {message.toolCall.params && Object.keys(message.toolCall.params).length > 0 && (
+                    <div className="border-t border-slate-700/50 px-2 py-1 bg-slate-900/30">
+                      <pre className="text-xs font-mono text-slate-500 overflow-x-auto">
+                        {JSON.stringify(message.toolCall.params, null, 2)}
+                      </pre>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Accent bar for agent messages */}
               {message.role === 'assistant' && (
                 <div className={`h-0.5 ${accent.accent}`}></div>
@@ -219,6 +253,11 @@ ConversationTranscript.propTypes = {
       role: PropTypes.oneOf(['user', 'assistant']).isRequired,
       content: PropTypes.string.isRequired,
       timestamp: PropTypes.number.isRequired,
+      toolCall: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        params: PropTypes.object,
+        status: PropTypes.oneOf(['pending', 'executing', 'complete', 'failed']),
+      }),
     })
   ),
   /** Whether the agent is currently streaming a response */
