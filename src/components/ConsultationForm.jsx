@@ -1,64 +1,31 @@
-import { useState } from 'react';
+import { useFormState } from '../hooks/useFormState';
+
+const initialValues = {
+  name: '',
+  email: '',
+  company: '',
+  challenge: '',
+};
+
+const validationRules = {
+  name: { required: true, message: 'Name is required' },
+  email: { required: true, email: true, message: 'Email is required' },
+  challenge: { required: true, message: 'Please describe your challenge' },
+};
 
 export default function ConsultationForm() {
-  const [values, setValues] = useState({
-    name: '',
-    email: '',
-    company: '',
-    challenge: '',
-  });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const {
+    values,
+    errors,
+    isSubmitting,
+    isSuccess,
+    handleChange,
+    handleSubmit,
+  } = useFormState(initialValues, validationRules);
 
-  const validateEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
-
-  const validate = () => {
-    const newErrors = {};
-
-    if (!values.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-
-    if (!values.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!validateEmail(values.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
-
-    if (!values.challenge.trim()) {
-      newErrors.challenge = 'Please describe your challenge';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
-    }
-  };
-
-  const handleSubmit = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-
-    if (!validate()) return;
-
-    setIsSubmitting(true);
-
-    // Mock submission with delay
-    console.log('Form submission:', values);
-
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    await handleSubmit();
   };
 
   if (isSuccess) {
@@ -78,7 +45,7 @@ export default function ConsultationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+    <form onSubmit={onSubmit} className="space-y-4 sm:space-y-5">
       {/* Name Field */}
       <div>
         <label htmlFor="name" className="block text-mono text-slate-400 text-xs sm:text-sm mb-2">
