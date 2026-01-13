@@ -2,7 +2,7 @@ import { CONTACT } from '../constants/config';
 
 export default function Footer() {
   const footerLinks = {
-    Product: ['AI Voice Agents', 'Sales Agents', 'Support Agents', 'Integrations'],
+    Product: ['AI Voice Agents', 'Revenue Agents', 'Support Agents', 'Integrations'],
     Company: ['About Us', 'Careers', 'Contact'],
     Legal: ['Privacy Policy', 'Terms of Service'],
   };

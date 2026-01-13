@@ -6,7 +6,7 @@ import { DemoController } from './demo';
  * VoiceDemo - AI Demo Section
  *
  * Showcases interactive AI agent capabilities with tabbed carousel:
- * - Sales agent (Alex AI - lead qualification)
+ * - Revenue agent (Alex AI - lead qualification)
  * - Support agent (Sarah AI - issue resolution)
  * - Operations agent (Jordan AI - HR/scheduling)
  *

@@ -5,24 +5,24 @@ import PropTypes from 'prop-types';
  * DemoTabs - Accessible tab navigation for use case selection
  *
  * Implements ARIA tablist pattern with full keyboard navigation.
- * Three tabs: Sales (blue), Support (white), Operations (amber)
+ * Three tabs: Revenue (blue), Support (white), Operations (amber)
  *
  * @example
  * <DemoTabs
- *   activeTab="sales"
+ *   activeTab="revenue"
  *   onTabChange={(tab) => setActiveTab(tab)}
  *   disabled={false}
  * />
  */
 
 const TABS = [
-  { id: 'sales', label: 'Sales', color: 'bg-brand-blue', textColor: 'text-white' },
+  { id: 'revenue', label: 'Revenue', color: 'bg-brand-blue', textColor: 'text-white' },
   { id: 'support', label: 'Support', color: 'bg-white', textColor: 'text-void' },
   { id: 'operations', label: 'Operations', color: 'bg-amber-500', textColor: 'text-void' },
 ];
 
 export default function DemoTabs({
-  activeTab = 'sales',
+  activeTab = 'revenue',
   onTabChange,
   disabled = false,
   highlightTabs = false,
@@ -111,7 +111,7 @@ export default function DemoTabs({
 
 DemoTabs.propTypes = {
   /** Currently active tab */
-  activeTab: PropTypes.oneOf(['sales', 'support', 'operations']),
+  activeTab: PropTypes.oneOf(['revenue', 'support', 'operations']),
   /** Callback when tab changes */
   onTabChange: PropTypes.func,
   /** Disable tab interaction */
