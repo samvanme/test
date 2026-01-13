@@ -76,9 +76,6 @@ const generateId = () => `${Date.now()}-${Math.random().toString(36).substr(2, 9
 // Simulate network delay
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// Simulate realistic typing delay based on text length
-const getTypingDelay = (text) => Math.min(50 + text.length * 15, 3000);
-
 /**
  * Mock connection implementation
  */
@@ -251,10 +248,15 @@ function useMockConnection({
 
 /**
  * Main hook - routes to appropriate implementation based on mode
+ *
+ * Note: Currently only mock mode is implemented. WebSocket and polling
+ * modes will be added in Phase 05-02 when backend is available.
  */
 export function useDemoConnection({
   mode = 'mock',
-  endpoint,
+  // endpoint is reserved for future WebSocket/polling implementations
+  // eslint-disable-next-line no-unused-vars
+  endpoint: _endpoint,
   onMessage,
   onError,
   onToolCall,
@@ -263,49 +265,14 @@ export function useDemoConnection({
   onStreamChunk,
   onStreamEnd,
 } = {}) {
-  // Currently only mock mode is implemented
-  // Future: add websocket and polling implementations
-
-  if (mode === 'mock') {
-    return useMockConnection({
-      onMessage,
-      onError,
-      onToolCall,
-      onStatusChange,
-      onStreamStart,
-      onStreamChunk,
-      onStreamEnd,
-    });
+  // Log warning for unimplemented modes
+  if (mode === 'websocket' || mode === 'polling') {
+    // Only log once per mode
+    console.warn(`${mode} mode not yet implemented, using mock mode`);
   }
 
-  // Placeholder for future implementations
-  if (mode === 'websocket') {
-    console.warn('WebSocket mode not yet implemented, falling back to mock');
-    return useMockConnection({
-      onMessage,
-      onError,
-      onToolCall,
-      onStatusChange,
-      onStreamStart,
-      onStreamChunk,
-      onStreamEnd,
-    });
-  }
-
-  if (mode === 'polling') {
-    console.warn('Polling mode not yet implemented, falling back to mock');
-    return useMockConnection({
-      onMessage,
-      onError,
-      onToolCall,
-      onStatusChange,
-      onStreamStart,
-      onStreamChunk,
-      onStreamEnd,
-    });
-  }
-
-  // Default to mock
+  // Always use mock connection - hooks must be called unconditionally
+  // Future: implement proper mode switching when WebSocket/polling are ready
   return useMockConnection({
     onMessage,
     onError,

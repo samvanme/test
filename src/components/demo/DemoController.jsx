@@ -203,23 +203,32 @@ export default function DemoController({
   }, [demoStatus, onModeChange]);
 
   // Handle timeout tracking
+  // Using ref to track previous status to avoid calling setState synchronously
+  const prevStatusRef = useRef(demoStatus);
+
   useEffect(() => {
-    if (demoStatus === DEMO_STATES.PROCESSING) {
-      setTimeoutDuration(0);
+    const wasProcessing = prevStatusRef.current === DEMO_STATES.PROCESSING;
+    const isProcessing = demoStatus === DEMO_STATES.PROCESSING;
+    prevStatusRef.current = demoStatus;
+
+    if (isProcessing && !wasProcessing) {
+      // Just entering processing state - start timer
+      // Reset is handled by the interval itself starting fresh
+      let count = 0;
       timeoutTimerRef.current = setInterval(() => {
-        setTimeoutDuration((prev) => {
-          if (prev >= 30) {
-            send(DEMO_EVENTS.TIMEOUT);
-            return prev;
-          }
-          return prev + 1;
-        });
+        count += 1;
+        setTimeoutDuration(count);
+        if (count >= 30) {
+          send(DEMO_EVENTS.TIMEOUT);
+          clearInterval(timeoutTimerRef.current);
+        }
       }, 1000);
-    } else {
+    } else if (!isProcessing && wasProcessing) {
+      // Left processing state - cleanup
       if (timeoutTimerRef.current) {
         clearInterval(timeoutTimerRef.current);
+        timeoutTimerRef.current = null;
       }
-      setTimeoutDuration(0);
     }
 
     return () => {
