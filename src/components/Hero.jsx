@@ -33,8 +33,7 @@ export default function Hero() {
 
           {/* Headline - responsive typography */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-black uppercase tracking-tight text-white mb-4 sm:mb-6 leading-[0.9]">
-            AI That <span className="text-brand-blue">Works</span><br />
-            Inside Your CRM
+            AI Voice That <span className="text-brand-blue">Works</span>
           </h1>
 
           {/* Horizontal accent */}
